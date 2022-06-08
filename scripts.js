@@ -40,26 +40,38 @@ window.addEventListener("load", function() {
         }
     });
     upBtn.addEventListener("click", function(){
-        movement = (parseInt(rocket.style.bottom) || 0) - 10;
-        rocket.style.bottom = movement + 'px';
+        let placement = window.getComputedStyle(rocket);
+        let topValue = placement.getPropertyValue("top").replace("px", "");
+        rocket.style.top = (Number(topValue) - 10) + "px";
+        // movement = parseInt(rocket.style.bottom) + 10;
+        // rocket.style.bottom = movement + 'px';
         miles = parseInt(spaceShuttleHeight.innerHTML) + 10000;
         spaceShuttleHeight.innerHTML = miles;
         console.log("pressed");
     });
     downBtn.addEventListener("click", function(){
-        movement = (parseInt(rocket.style.top) || 0) + 10;
-        rocket.style.top = movement + 'px';
+        let placement = window.getComputedStyle(rocket);
+        let topValue = placement.getPropertyValue("top").replace("px", "");
+        rocket.style.top = (Number(topValue) + 10) + "px";
+        // movement = parseInt(rocket.style.top) + 10;
+        // rocket.style.top = movement + 'px';
         miles = parseInt(spaceShuttleHeight.innerHTML) - 10000;
         spaceShuttleHeight.innerHTML = miles;
     });
     rightBtn.addEventListener("click", function(){
-        movement = (parseInt(rocket.style.right) || 0) - 10;
-        rocket.style.right = movement + 'px';
+        let placement = window.getComputedStyle(rocket);
+        let leftValue = placement.getPropertyValue("left").replace("px", "");
+        rocket.style.left = (Number(leftValue) + 10) + "px";
+        // movement = parseInt(rocket.style.right) - 10;
+        // rocket.style.right = movement + 'px';
         console.log("pressed right btn");
     });
     leftBtn.addEventListener("click", function(){
-        movement = (parseInt(rocket.style.left) || 0) - 10;
-        rocket.style.left = movement + 'px';
+        let placement = window.getComputedStyle(rocket);
+        let leftValue = placement.getPropertyValue("left").replace("px", "");
+        rocket.style.left = (Number(leftValue) - 10) + "px";
+        // movement = (parseInt(rocket.style.left) || 0) - 10;
+        // rocket.style.left = movement + 'px';
         console.log("pressed left btn");
     });
 });
